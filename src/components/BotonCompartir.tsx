@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { IconoCompartir } from "./Iconos";
 
 export function BotonCompartir({ titulo, url }: { titulo: string; url: string }) {
   const [copiado, setCopiado] = useState(false);
@@ -21,8 +22,9 @@ export function BotonCompartir({ titulo, url }: { titulo: string; url: string })
     <button
       type="button"
       onClick={compartir}
-      className="w-full rounded-full border border-marca px-5 py-3 text-sm font-semibold text-marca transition hover:bg-marca hover:text-white"
+      className="flex w-full items-center justify-center gap-2 py-2 text-sm font-semibold text-gris transition hover:text-selva"
     >
+      <IconoCompartir className="h-4 w-4" />
       {copiado ? "¡Link copiado!" : "Compartir propiedad"}
     </button>
   );

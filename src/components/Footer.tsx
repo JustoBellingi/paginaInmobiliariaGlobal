@@ -1,36 +1,66 @@
 import Link from "next/link";
-import { linkWhatsapp, sitio } from "@/lib/config";
+import { linkTelefono, linkWhatsapp, sitio } from "@/lib/config";
+import { getCiudades } from "@/lib/propiedades";
+import { IconoMail, IconoPin, IconoReloj, IconoTelefono } from "./Iconos";
+import { Logo } from "./Logo";
 
 export function Footer() {
+  const ciudades = getCiudades().slice(0, 6);
+
   return (
-    <footer className="mt-20 bg-marca text-white/80">
-      <div className="contenedor grid gap-8 py-12 text-sm sm:grid-cols-3">
+    <footer className="mt-24 bg-selva text-sm text-white/70">
+      <div className="contenedor grid gap-10 py-16 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.3fr]">
         <div>
-          <p className="font-display text-lg font-semibold text-white">{sitio.nombre}</p>
-          <p className="mt-2 max-w-xs">{sitio.descripcion}</p>
-        </div>
-        <div className="space-y-1">
-          <p className="mb-2 font-semibold text-white">Contacto</p>
-          <p>{sitio.direccion}</p>
-          <p>{sitio.horario}</p>
-          <p>
-            <a href={`tel:${sitio.telefono.replace(/\D/g, "")}`} className="hover:text-white">
-              {sitio.telefono}
+          <Logo claro />
+          <p className="mt-5 max-w-xs leading-relaxed">{sitio.descripcion}</p>
+          <div className="mt-5 flex gap-3">
+            <a href={sitio.instagram} className="rounded-full border border-white/20 px-4 py-1.5 hover:border-white hover:text-white">
+              Instagram
             </a>
-          </p>
-          <p>
-            <a href={`mailto:${sitio.email}`} className="hover:text-white">
-              {sitio.email}
+            <a href={sitio.facebook} className="rounded-full border border-white/20 px-4 py-1.5 hover:border-white hover:text-white">
+              Facebook
             </a>
-          </p>
+          </div>
         </div>
-        <div className="space-y-1">
-          <p className="mb-2 font-semibold text-white">Accesos</p>
-          <p><Link href="/propiedades?operacion=venta" className="hover:text-white">Propiedades en venta</Link></p>
-          <p><Link href="/propiedades?operacion=alquiler" className="hover:text-white">Propiedades en alquiler</Link></p>
-          <p><Link href="/tasaciones" className="hover:text-white">Tasación online</Link></p>
-          <p><a href={linkWhatsapp("Hola, quería hacer una consulta.")} className="hover:text-white">WhatsApp</a></p>
-          <p><a href={sitio.instagram} className="hover:text-white">Instagram</a></p>
+        <div>
+          <p className="mb-4 text-xs font-bold tracking-[0.2em] text-white uppercase">Propiedades</p>
+          <ul className="space-y-2.5">
+            <li><Link href="/propiedades?operacion=venta" className="hover:text-white">En venta</Link></li>
+            <li><Link href="/propiedades?operacion=alquiler" className="hover:text-white">En alquiler</Link></li>
+            <li><Link href="/propiedades?tipo=terreno" className="hover:text-white">Terrenos</Link></li>
+            <li><Link href="/propiedades?tipo=chacra" className="hover:text-white">Chacras</Link></li>
+            <li><Link href="/tasaciones" className="hover:text-white">Tasaciones</Link></li>
+          </ul>
+        </div>
+        <div>
+          <p className="mb-4 text-xs font-bold tracking-[0.2em] text-white uppercase">Localidades</p>
+          <ul className="space-y-2.5">
+            {ciudades.map((c) => (
+              <li key={c.nombre}>
+                <Link href={`/propiedades?ciudad=${encodeURIComponent(c.nombre)}`} className="hover:text-white">
+                  {c.nombre}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <p className="mb-4 text-xs font-bold tracking-[0.2em] text-white uppercase">Contacto</p>
+          <ul className="space-y-3">
+            <li className="flex gap-2.5"><IconoPin className="mt-0.5 h-4 w-4 shrink-0 text-tierra" />{sitio.direccion}, {sitio.ciudad}, {sitio.provincia}</li>
+            <li className="flex gap-2.5"><IconoTelefono className="mt-0.5 h-4 w-4 shrink-0 text-tierra" /><a href={linkTelefono} className="hover:text-white">{sitio.telefono}</a></li>
+            <li className="flex gap-2.5"><IconoMail className="mt-0.5 h-4 w-4 shrink-0 text-tierra" /><a href={`mailto:${sitio.email}`} className="break-all hover:text-white">{sitio.email}</a></li>
+            <li className="flex gap-2.5"><IconoReloj className="mt-0.5 h-4 w-4 shrink-0 text-tierra" />{sitio.horario}</li>
+          </ul>
+          <a href={linkWhatsapp("Hola, quería hacer una consulta.")} className="boton-whatsapp mt-5">
+            Escribinos por WhatsApp
+          </a>
+        </div>
+      </div>
+      <div className="border-t border-white/10">
+        <div className="contenedor flex flex-col gap-2 py-6 text-xs text-white/50 sm:flex-row sm:justify-between">
+          <p>© {sitio.nombre} · {sitio.matricula}</p>
+          <p>Las fotos, medidas y precios son orientativos y pueden variar sin previo aviso.</p>
         </div>
       </div>
     </footer>

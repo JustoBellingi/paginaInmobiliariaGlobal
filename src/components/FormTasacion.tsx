@@ -12,15 +12,15 @@ export function FormTasacion() {
     return (
       <div className="rounded-2xl border border-linea bg-white p-8 text-center">
         <p className="text-4xl">✓</p>
-        <p className="mt-2 text-lg font-semibold text-marca">{estado.mensaje}</p>
+        <p className="mt-2 text-lg font-semibold text-selva">{estado.mensaje}</p>
       </div>
     );
   }
 
   return (
-    <form action={accion} className="space-y-6 rounded-2xl border border-linea bg-white p-6 sm:p-8">
+    <form action={accion} className="space-y-6 rounded-3xl bg-white p-6 shadow-[0_20px_50px_-25px_rgba(15,47,38,0.3)] ring-1 ring-linea sm:p-10">
       <fieldset className="grid gap-4 sm:grid-cols-3">
-        <legend className="mb-3 font-bold text-marca">Tus datos</legend>
+        <legend className="mb-4 font-display text-xl text-selva">Tus datos</legend>
         <label>
           <span className="etiqueta">Nombre *</span>
           <input name="nombre" required className="campo" autoComplete="name" />
@@ -36,7 +36,7 @@ export function FormTasacion() {
       </fieldset>
 
       <fieldset className="grid gap-4 sm:grid-cols-2">
-        <legend className="mb-3 font-bold text-marca">Tu propiedad</legend>
+        <legend className="mb-4 font-display text-xl text-selva">Tu propiedad</legend>
         <label>
           <span className="etiqueta">Querés</span>
           <select name="operacion" className="campo" defaultValue="Vender">
@@ -95,7 +95,7 @@ export function FormTasacion() {
       <button
         type="submit"
         disabled={enviando}
-        className="w-full rounded-full bg-marca px-6 py-3.5 font-semibold text-white transition hover:bg-marca-claro disabled:opacity-60 sm:w-auto"
+        className="boton-tierra w-full px-8 py-3.5 disabled:opacity-60 sm:w-auto"
       >
         {enviando ? "Enviando…" : "Pedir tasación"}
       </button>

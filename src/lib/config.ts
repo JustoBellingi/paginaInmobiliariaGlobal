@@ -1,18 +1,27 @@
 // Datos de la inmobiliaria. Cambiar acá y se actualiza en todo el sitio.
+// TODO: reemplazar todos los datos de contacto por los reales.
 export const sitio = {
   nombre: "Global Inmobiliaria",
+  eslogan: "Propiedades en Misiones",
   descripcion:
-    "Compra, venta y alquiler de propiedades. Encontrá tu próxima casa o departamento y pedí la tasación de tu propiedad online.",
+    "Inmobiliaria en Misiones. Casas, departamentos, terrenos y chacras en venta y alquiler en Posadas, Oberá, Puerto Iguazú y toda la provincia. Tasaciones profesionales.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   // Número en formato internacional sin "+", espacios ni guiones (549 + característica + número).
-  whatsapp: "5492210000000",
-  telefono: "(221) 000-0000",
+  whatsapp: "5493764000000",
+  telefono: "(376) 400-0000",
   email: "contacto@globalinmobiliaria.com.ar",
-  direccion: "Calle 00 nº 000, La Plata, Buenos Aires",
-  horario: "Lunes a viernes de 9 a 18 h · Sábados de 9 a 13 h",
+  direccion: "Calle Ejemplo 1234",
+  ciudad: "Posadas",
+  provincia: "Misiones",
+  ubicacion: { lat: -27.3671, lng: -55.8961 },
+  horario: "Lunes a viernes de 8 a 12:30 y de 16 a 20 h · Sábados de 9 a 12:30 h",
+  matricula: "Corredor Inmobiliario · Mat. Nº 000",
   instagram: "https://www.instagram.com/",
+  facebook: "https://www.facebook.com/",
 };
 
 export function linkWhatsapp(mensaje: string) {
   return `https://wa.me/${sitio.whatsapp}?text=${encodeURIComponent(mensaje)}`;
 }
+
+export const linkTelefono = `tel:+54${sitio.telefono.replace(/\D/g, "")}`;

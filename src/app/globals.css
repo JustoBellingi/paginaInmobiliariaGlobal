@@ -1,31 +1,79 @@
 @import "tailwindcss";
 
+/* Identidad: verde selva + tierra colorada de Misiones sobre fondo arena. */
 @theme inline {
-  --color-marca: #0f2a44;
-  --color-marca-claro: #1d4470;
-  --color-acento: #c9a227;
-  --color-acento-oscuro: #a8851a;
-  --color-fondo: #f6f5f1;
-  --color-tinta: #1b1f24;
-  --color-gris: #5b6470;
-  --color-linea: #e3e0d8;
+  --color-selva: #0f2f26;
+  --color-selva-medio: #1b4a3c;
+  --color-selva-claro: #2c6a56;
+  --color-tierra: #b4502a;
+  --color-tierra-oscuro: #8f3d1e;
+  --color-tierra-suave: #f4e3d8;
+  --color-arena: #f7f4ee;
+  --color-crema: #ede6da;
+  --color-tinta: #17201c;
+  --color-gris: #5d6661;
+  --color-linea: #e2dbcf;
   --font-sans: var(--font-manrope);
   --font-display: var(--font-fraunces);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--color-fondo);
+  background: var(--color-arena);
   color: var(--color-tinta);
 }
 
-.contenedor {
-  @apply mx-auto w-full max-w-6xl px-4 sm:px-6;
+::selection {
+  background: var(--color-tierra);
+  color: white;
 }
 
-.campo {
-  @apply w-full rounded-lg border border-linea bg-white px-3 py-2.5 text-sm text-tinta outline-none focus:border-marca-claro focus:ring-2 focus:ring-marca-claro/20;
+@utility contenedor {
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
 }
 
-.etiqueta {
-  @apply mb-1 block text-xs font-semibold uppercase tracking-wide text-gris;
+@utility campo {
+  @apply w-full rounded-lg border border-linea bg-white px-3 py-2.5 text-sm text-tinta transition outline-none focus:border-selva-claro focus:ring-2 focus:ring-selva-claro/15;
+}
+
+@utility etiqueta {
+  @apply mb-1.5 block text-[11px] font-bold tracking-[0.12em] text-gris uppercase;
+}
+
+@utility sobretitulo {
+  @apply text-xs font-bold tracking-[0.2em] text-tierra uppercase;
+}
+
+@utility titulo-seccion {
+  @apply font-display text-3xl leading-tight font-medium text-selva sm:text-4xl;
+}
+
+@utility boton {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition;
+}
+
+@utility boton-primario {
+  @apply boton bg-selva text-white hover:bg-selva-medio;
+}
+
+@utility boton-tierra {
+  @apply boton bg-tierra text-white hover:bg-tierra-oscuro;
+}
+
+@utility boton-borde {
+  @apply boton border border-selva/20 bg-white text-selva hover:border-selva;
+}
+
+@utility boton-whatsapp {
+  @apply boton bg-[#1fa855] text-white hover:bg-[#178a45];
+}
+
+/* En la ficha de propiedad (celular) ya hay una barra fija con WhatsApp: ocultamos el botón flotante. */
+@media (width < 64rem) {
+  body:has(.barra-contacto) .whatsapp-flotante {
+    display: none;
+  }
 }
