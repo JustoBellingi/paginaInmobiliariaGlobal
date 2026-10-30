@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-marca: #0f2a44;
+  --color-marca-claro: #1d4470;
+  --color-acento: #c9a227;
+  --color-acento-oscuro: #a8851a;
+  --color-fondo: #f6f5f1;
+  --color-tinta: #1b1f24;
+  --color-gris: #5b6470;
+  --color-linea: #e3e0d8;
+  --font-sans: var(--font-manrope);
+  --font-display: var(--font-fraunces);
+}
+
+body {
+  background: var(--color-fondo);
+  color: var(--color-tinta);
+}
+
+.contenedor {
+  @apply mx-auto w-full max-w-6xl px-4 sm:px-6;
+}
+
+.campo {
+  @apply w-full rounded-lg border border-linea bg-white px-3 py-2.5 text-sm text-tinta outline-none focus:border-marca-claro focus:ring-2 focus:ring-marca-claro/20;
+}
+
+.etiqueta {
+  @apply mb-1 block text-xs font-semibold uppercase tracking-wide text-gris;
+}
