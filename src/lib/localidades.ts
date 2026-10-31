@@ -1,5 +1,5 @@
 // Fotos de cada localidad para las tarjetas de la portada.
-// Las de Wikimedia Commons tienen licencia libre que pide citar al autor: el crédito se muestra en la portada.
+// Las de Wikimedia Commons tienen licencia libre que pide citar al autor: el crédito se muestra en la página /creditos (link en el footer).
 // Para usar una foto propia: ponerla en public/localidades/<nombre>.jpg, usar src "/localidades/<nombre>.jpg"
 // y borrar su `credito`.
 export type FotoLocalidad = {

@@ -61,7 +61,10 @@ export function Footer() {
         <div className="contenedor flex flex-col gap-3 py-6 text-xs text-white/50 sm:flex-row sm:items-end sm:justify-between">
           <div className="space-y-1">
             <p>© {sitio.nombre} · {sitio.matricula}</p>
-            <p>Las fotos, medidas y precios son orientativos y pueden variar sin previo aviso.</p>
+            <p>
+              Las fotos, medidas y precios son orientativos y pueden variar sin previo aviso. ·{" "}
+              <Link href="/creditos" className="hover:text-white hover:underline">Créditos</Link>
+            </p>
           </div>
           <p>
             Sitio web por{" "}

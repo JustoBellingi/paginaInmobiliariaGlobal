@@ -45,10 +45,6 @@ export default function Home() {
   const todasDestacadas = propiedades.filter((p) => p.destacada);
   const destacadas = todasDestacadas.slice(0, Math.min(6, Math.max(3, todasDestacadas.length - (todasDestacadas.length % 3))));
   const ciudades = getCiudades();
-  const creditos = ciudades.flatMap((c) => {
-    const credito = fotosLocalidades[c.nombre]?.credito;
-    return credito ? [[c.nombre, credito] as const] : [];
-  });
 
   return (
     <>
@@ -150,20 +146,6 @@ export default function Home() {
             );
           })}
         </div>
-        {creditos.length > 0 && (
-          <p className="mt-4 text-xs text-gris/80">
-            Fotos de localidades:{" "}
-            {creditos.map(([ciudad, c], i) => (
-              <span key={ciudad}>
-                {i > 0 && " · "}
-                <a href={c.url} target="_blank" rel="noopener noreferrer" className="hover:text-marino hover:underline">
-                  {ciudad}, {c.autor} ({c.licencia})
-                </a>
-              </span>
-            ))}
-            , vía Wikimedia Commons.
-          </p>
-        )}
       </section>
 
       {/* Nosotros */}
