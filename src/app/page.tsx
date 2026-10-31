@@ -1,14 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BuscadorHero } from "@/components/BuscadorHero";
-import {
-  IconoCheck,
-  IconoEscudo,
-  IconoFlecha,
-  IconoGrafico,
-  IconoLlave,
-  IconoPin,
-} from "@/components/Iconos";
+import { ChartNoAxesCombined, Handshake, MapPinned, ShieldCheck } from "lucide-react";
+import { IconoCheck, IconoFlecha } from "@/components/Iconos";
 import { IconoWhatsapp } from "@/components/IconoWhatsapp";
 import { TarjetaPropiedad } from "@/components/TarjetaPropiedad";
 import { linkWhatsapp } from "@/lib/config";
@@ -17,22 +11,22 @@ import { getCiudades, propiedades } from "@/lib/propiedades";
 
 const pilares = [
   {
-    icono: IconoGrafico,
+    icono: ChartNoAxesCombined,
     titulo: "Tasaciones reales",
     texto: "Valuamos con datos del mercado local, no con números inflados para captar tu propiedad.",
   },
   {
-    icono: IconoEscudo,
+    icono: ShieldCheck,
     titulo: "Operaciones seguras",
     texto: "Revisamos títulos y documentación y te acompañamos hasta la escritura o la firma del contrato.",
   },
   {
-    icono: IconoPin,
+    icono: MapPinned,
     titulo: "Conocemos Misiones",
     texto: "Desde Posadas hasta Iguazú: barrios, accesos, servicios y lo que de verdad vale cada zona.",
   },
   {
-    icono: IconoLlave,
+    icono: Handshake,
     titulo: "Trato directo",
     texto: "Un asesor que responde. Por WhatsApp, por teléfono o en la oficina, cuando lo necesites.",
   },
@@ -85,16 +79,12 @@ export default function Home() {
 
       {/* Pilares */}
       <section className="border-b border-linea bg-white">
-        <div className="contenedor grid gap-8 py-14 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="contenedor grid gap-x-10 gap-y-10 py-16 sm:grid-cols-2 lg:grid-cols-4">
           {pilares.map(({ icono: Icono, titulo, texto }) => (
-            <div key={titulo} className="flex gap-4">
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-tierra-suave text-tierra">
-                <Icono className="h-6 w-6" />
-              </span>
-              <div>
-                <h3 className="font-bold text-selva">{titulo}</h3>
-                <p className="mt-1 text-sm leading-relaxed text-gris">{texto}</p>
-              </div>
+            <div key={titulo} className="border-t border-selva/15 pt-6">
+              <Icono className="h-8 w-8 text-tierra" strokeWidth={1.4} aria-hidden="true" />
+              <h3 className="mt-5 font-display text-xl text-selva">{titulo}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-gris">{texto}</p>
             </div>
           ))}
         </div>

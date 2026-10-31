@@ -226,7 +226,7 @@ export default async function PropiedadPage({ params }: PageProps<"/propiedades/
         </div>
 
         <aside className="hidden lg:block">
-          <div className="sticky top-32 space-y-3 rounded-3xl bg-white p-7 shadow-[0_20px_50px_-20px_rgba(15,47,38,0.25)] ring-1 ring-linea">
+          <div className="sticky top-24 space-y-3 rounded-3xl bg-white p-7 shadow-[0_20px_50px_-20px_rgba(15,47,38,0.25)] ring-1 ring-linea">
             <p className="text-sm text-gris">{p.operacion === "venta" ? "Precio de venta" : "Alquiler mensual"}</p>
             <p className="text-4xl font-bold tracking-tight text-selva">{formatPrecio(p.precio, p.moneda)}</p>
             {p.expensas ? <p className="text-sm text-gris">+ {formatPrecio(p.expensas, "ARS")} de expensas</p> : null}

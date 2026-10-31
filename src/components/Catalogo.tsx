@@ -193,7 +193,7 @@ export function Catalogo({ propiedades, ciudades }: Props) {
       </div>
 
       <div className="mt-8 grid gap-8 lg:grid-cols-[280px_1fr]">
-        <aside className="hidden h-fit rounded-2xl bg-white p-6 ring-1 ring-linea lg:sticky lg:top-32 lg:block">
+        <aside className="hidden h-fit rounded-2xl bg-white p-6 ring-1 ring-linea lg:sticky lg:top-24 lg:block">
           <p className="mb-5 font-display text-xl text-selva">Filtrar búsqueda</p>
           {filtros}
         </aside>

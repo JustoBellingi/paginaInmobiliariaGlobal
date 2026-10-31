@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { linkTelefono, sitio } from "@/lib/config";
-import { IconoMail, IconoPin, IconoTelefono } from "./Iconos";
+import { sitio } from "@/lib/config";
 import { Logo } from "./Logo";
 import { MenuMovil } from "./MenuMovil";
 
@@ -15,21 +14,6 @@ const enlaces = [
 export function Header() {
   return (
     <header className="sticky top-0 z-30">
-      <div className="hidden bg-selva text-xs text-white/75 md:block">
-        <div className="contenedor flex h-9 items-center justify-between">
-          <p className="flex items-center gap-1.5">
-            <IconoPin className="h-3.5 w-3.5" /> {sitio.direccion}, {sitio.ciudad}, {sitio.provincia}
-          </p>
-          <div className="flex items-center gap-5">
-            <a href={linkTelefono} className="flex items-center gap-1.5 hover:text-white">
-              <IconoTelefono className="h-3.5 w-3.5" /> {sitio.telefono}
-            </a>
-            <a href={`mailto:${sitio.email}`} className="flex items-center gap-1.5 hover:text-white">
-              <IconoMail className="h-3.5 w-3.5" /> {sitio.email}
-            </a>
-          </div>
-        </div>
-      </div>
       <div className="border-b border-linea bg-white/95 backdrop-blur">
         <div className="contenedor flex h-[72px] items-center justify-between gap-6">
           <Link href="/" aria-label={`${sitio.nombre} - Inicio`}>
