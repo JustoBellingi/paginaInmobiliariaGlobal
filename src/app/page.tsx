@@ -12,6 +12,7 @@ import {
 import { IconoWhatsapp } from "@/components/IconoWhatsapp";
 import { TarjetaPropiedad } from "@/components/TarjetaPropiedad";
 import { linkWhatsapp } from "@/lib/config";
+import { fotosLocalidades } from "@/lib/localidades";
 import { getCiudades, propiedades } from "@/lib/propiedades";
 
 const pilares = [
@@ -50,6 +51,10 @@ export default function Home() {
   const todasDestacadas = propiedades.filter((p) => p.destacada);
   const destacadas = todasDestacadas.slice(0, Math.min(6, Math.max(3, todasDestacadas.length - (todasDestacadas.length % 3))));
   const ciudades = getCiudades();
+  const creditos = ciudades.flatMap((c) => {
+    const credito = fotosLocalidades[c.nombre]?.credito;
+    return credito ? [[c.nombre, credito] as const] : [];
+  });
 
   return (
     <>
@@ -118,27 +123,57 @@ export default function Home() {
         <p className="sobretitulo">Explorá por zona</p>
         <h2 className="titulo-seccion mt-2">Propiedades en toda la provincia</h2>
         <div className="mt-10 grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-4">
-          {ciudades.map((c, i) => (
+          {ciudades.map((c, i) => {
+            const foto = fotosLocalidades[c.nombre];
+            return (
             <Link
               key={c.nombre}
               href={`/propiedades?ciudad=${encodeURIComponent(c.nombre)}`}
-              className={`group relative flex aspect-[4/5] flex-col justify-end overflow-hidden rounded-2xl p-5 text-white transition hover:-translate-y-1 ${
+              className={`group relative isolate flex aspect-[4/5] flex-col justify-end overflow-hidden rounded-2xl p-5 text-white transition hover:-translate-y-1 ${
                 i % 2 ? "bg-tierra" : "bg-selva"
               }`}
             >
-              <svg viewBox="0 0 100 100" className="absolute -top-6 -right-6 h-32 w-32 opacity-15" aria-hidden="true">
-                <circle cx="50" cy="50" r="48" fill="none" stroke="white" strokeWidth="1.5" />
-                <circle cx="50" cy="50" r="32" fill="none" stroke="white" strokeWidth="1.5" />
-                <circle cx="50" cy="50" r="16" fill="none" stroke="white" strokeWidth="1.5" />
-              </svg>
+              {foto ? (
+                <>
+                  <Image
+                    src={foto.src}
+                    alt={`Vista de ${c.nombre}`}
+                    fill
+                    sizes="(min-width: 1024px) 20vw, (min-width: 640px) 33vw, 50vw"
+                    className="-z-20 object-cover transition duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 -z-10 bg-gradient-to-t from-selva via-selva/40 to-transparent" />
+                </>
+              ) : (
+                <svg viewBox="0 0 100 100" className="absolute -top-6 -right-6 h-32 w-32 opacity-15" aria-hidden="true">
+                  <circle cx="50" cy="50" r="48" fill="none" stroke="white" strokeWidth="1.5" />
+                  <circle cx="50" cy="50" r="32" fill="none" stroke="white" strokeWidth="1.5" />
+                  <circle cx="50" cy="50" r="16" fill="none" stroke="white" strokeWidth="1.5" />
+                </svg>
+              )}
               <p className="font-display text-2xl leading-tight">{c.nombre}</p>
               <p className="mt-1 flex items-center gap-1 text-sm text-white/75">
                 {c.cantidad} propiedad{c.cantidad === 1 ? "" : "es"}
                 <IconoFlecha className="h-4 w-4 transition group-hover:translate-x-1" />
               </p>
             </Link>
-          ))}
+            );
+          })}
         </div>
+        {creditos.length > 0 && (
+          <p className="mt-4 text-xs text-gris/80">
+            Fotos de localidades:{" "}
+            {creditos.map(([ciudad, c], i) => (
+              <span key={ciudad}>
+                {i > 0 && " · "}
+                <a href={c.url} target="_blank" rel="noopener noreferrer" className="hover:text-selva hover:underline">
+                  {ciudad}, {c.autor} ({c.licencia})
+                </a>
+              </span>
+            ))}
+            , vía Wikimedia Commons.
+          </p>
+        )}
       </section>
 
       {/* Nosotros */}

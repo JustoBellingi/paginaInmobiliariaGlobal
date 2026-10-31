@@ -5,7 +5,11 @@ const nextConfig: NextConfig = {
   partialPrefetching: true,
   images: {
     // Fotos de ejemplo. Cuando se carguen las fotos reales, agregar acá su dominio.
-    remotePatterns: [{ protocol: "https", hostname: "images.unsplash.com" }],
+    remotePatterns: [
+      { protocol: "https", hostname: "images.unsplash.com" },
+      // Fotos de localidades (Wikimedia Commons, ver src/lib/localidades.ts).
+      { protocol: "https", hostname: "thumb.wikimedia.org" },
+    ],
   },
   turbopack: {
     root: __dirname,
