@@ -26,7 +26,7 @@ export default function ContactoPage() {
             Hablemos de tu próxima propiedad
           </h1>
           <p className="mt-4 max-w-xl text-lg text-white/80">
-            Escribinos por WhatsApp, llamanos o acercate a la oficina. Te respondemos en el día.
+            Escribinos por WhatsApp, llamanos o acercate a la oficina.
           </p>
           <a
             href={linkWhatsapp("Hola, quería hacer una consulta.")}

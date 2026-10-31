@@ -1,8 +1,10 @@
 "use server";
 
-import { sitio } from "@/lib/config";
+import { linkWhatsapp, sitio } from "@/lib/config";
 
-export type EstadoTasacion = { ok: boolean; mensaje: string } | null;
+// Si el mail no se pudo enviar (o todavía no está configurado), `whatsapp` trae un link
+// con todos los datos cargados para que la persona los mande por WhatsApp.
+export type EstadoTasacion = { ok: boolean; mensaje: string; whatsapp?: string } | null;
 
 const campos = {
   nombre: "Nombre",
@@ -40,12 +42,24 @@ export async function enviarTasacion(_prev: EstadoTasacion, form: FormData): Pro
     .map((k) => `<tr><td style="padding:4px 12px 4px 0;color:#5b6470">${campos[k]}</td><td><b>${escapar(datos[k])}</b></td></tr>`)
     .join("");
 
+  const porWhatsapp: EstadoTasacion = {
+    ok: false,
+    mensaje: "Último paso: envianos estos datos por WhatsApp y coordinamos la visita.",
+    whatsapp: linkWhatsapp(
+      "Hola! Quiero pedir una tasación.\n\n" +
+        (Object.keys(campos) as (keyof typeof campos)[])
+          .filter((k) => datos[k])
+          .map((k) => `${campos[k]}: ${datos[k]}`)
+          .join("\n"),
+    ),
+  };
+
   const apiKey = process.env.RESEND_API_KEY;
   const destino = process.env.TASACION_EMAIL ?? sitio.email;
 
   if (!apiKey) {
-    console.warn("[tasación] Falta RESEND_API_KEY: el pedido no se envió por mail.", datos);
-    return { ok: false, mensaje: "No pudimos enviar el formulario. Escribinos por WhatsApp y lo vemos enseguida." };
+    console.warn("[tasación] Falta RESEND_API_KEY: se ofrece enviar el pedido por WhatsApp.");
+    return porWhatsapp;
   }
 
   const res = await fetch("https://api.resend.com/emails", {
@@ -62,7 +76,7 @@ export async function enviarTasacion(_prev: EstadoTasacion, form: FormData): Pro
 
   if (!res.ok) {
     console.error("[tasación] Error de Resend", res.status, await res.text());
-    return { ok: false, mensaje: "No pudimos enviar el formulario. Escribinos por WhatsApp y lo vemos enseguida." };
+    return porWhatsapp;
   }
 
   return { ok: true, mensaje: "¡Gracias! Recibimos los datos y te contactamos a la brevedad." };

@@ -1,18 +1,35 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect, useRef } from "react";
 import { enviarTasacion } from "@/app/tasaciones/actions";
-import { linkWhatsapp } from "@/lib/config";
 import { tipoLabel } from "@/lib/propiedades";
+import { IconoCheck } from "./Iconos";
+import { IconoWhatsapp } from "./IconoWhatsapp";
 
 export function FormTasacion() {
   const [estado, accion, enviando] = useActionState(enviarTasacion, null);
+  const resultado = useRef<HTMLDivElement>(null);
 
-  if (estado?.ok) {
+  // El formulario es largo: al terminar, llevamos la vista al mensaje de resultado.
+  useEffect(() => {
+    resultado.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, [estado]);
+
+  if (estado?.ok || estado?.whatsapp) {
     return (
-      <div className="rounded-2xl border border-linea bg-white p-8 text-center">
-        <p className="text-4xl">✓</p>
-        <p className="mt-2 text-lg font-semibold text-marino">{estado.mensaje}</p>
+      <div ref={resultado} className="h-fit rounded-3xl bg-white p-8 text-center shadow-[0_20px_50px_-25px_rgba(25,33,44,0.3)] ring-1 ring-linea sm:p-12">
+        <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-petroleo-suave text-petroleo">
+          <IconoCheck className="h-7 w-7" />
+        </span>
+        <p className="mt-5 font-display text-2xl text-marino">
+          {estado.ok ? "¡Gracias! Recibimos tus datos" : "Ya casi está"}
+        </p>
+        <p className="mx-auto mt-2 max-w-md text-gris">{estado.mensaje}</p>
+        {estado.whatsapp && (
+          <a href={estado.whatsapp} target="_blank" rel="noopener noreferrer" className="boton-whatsapp mt-7 px-8 py-3.5">
+            <IconoWhatsapp /> Enviar por WhatsApp
+          </a>
+        )}
       </div>
     );
   }
@@ -83,14 +100,7 @@ export function FormTasacion() {
 
       <input name="web" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
 
-      {estado && !estado.ok && (
-        <p className="rounded-lg bg-red-50 p-3 text-sm text-red-700">
-          {estado.mensaje}{" "}
-          <a href={linkWhatsapp("Hola, quiero tasar mi propiedad.")} className="font-semibold underline">
-            Abrir WhatsApp
-          </a>
-        </p>
-      )}
+      {estado && !estado.ok && <p className="rounded-lg bg-red-50 p-3 text-sm text-red-700">{estado.mensaje}</p>}
 
       <button
         type="submit"
