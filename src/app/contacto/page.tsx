@@ -19,9 +19,9 @@ export default function ContactoPage() {
 
   return (
     <>
-      <section className="bg-selva text-white">
+      <section className="bg-marino text-white">
         <div className="contenedor py-16 sm:py-20">
-          <p className="sobretitulo text-tierra-suave/90">Contacto</p>
+          <p className="sobretitulo text-petroleo-suave/90">Contacto</p>
           <h1 className="mt-3 max-w-2xl font-display text-4xl leading-tight font-medium sm:text-5xl">
             Hablemos de tu próxima propiedad
           </h1>
@@ -42,15 +42,15 @@ export default function ContactoPage() {
         <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
           {datos.map(({ icono: Icono, titulo, texto, href }) => (
             <li key={titulo} className="flex gap-4 rounded-2xl bg-white p-6 ring-1 ring-linea">
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-tierra-suave text-tierra">
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-petroleo-suave text-petroleo">
                 <Icono className="h-6 w-6" />
               </span>
               <div className="min-w-0">
                 <p className="etiqueta">{titulo}</p>
                 {href ? (
-                  <a href={href} className="font-semibold break-words text-selva hover:text-tierra">{texto}</a>
+                  <a href={href} className="font-semibold break-words text-marino hover:text-petroleo">{texto}</a>
                 ) : (
-                  <p className="font-semibold text-selva">{texto}</p>
+                  <p className="font-semibold text-marino">{texto}</p>
                 )}
               </div>
             </li>

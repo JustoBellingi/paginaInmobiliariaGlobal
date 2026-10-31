@@ -21,7 +21,7 @@ export function Header() {
           </Link>
           <nav className="hidden items-center gap-8 text-[15px] font-medium lg:flex">
             {enlaces.slice(0, 4).map((e) => (
-              <Link key={e.href} href={e.href} className="text-tinta/80 transition hover:text-tierra">
+              <Link key={e.href} href={e.href} className="text-tinta/80 transition hover:text-petroleo">
                 {e.label}
               </Link>
             ))}

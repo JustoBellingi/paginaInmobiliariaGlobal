@@ -8,7 +8,7 @@ export function Footer() {
   const ciudades = getCiudades().slice(0, 6);
 
   return (
-    <footer className="mt-24 bg-selva text-sm text-white/70">
+    <footer className="mt-24 bg-marino text-sm text-white/70">
       <div className="contenedor grid gap-10 py-16 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.3fr]">
         <div>
           <Logo claro />
@@ -47,10 +47,10 @@ export function Footer() {
         <div>
           <p className="mb-4 text-xs font-bold tracking-[0.2em] text-white uppercase">Contacto</p>
           <ul className="space-y-3">
-            <li className="flex gap-2.5"><IconoPin className="mt-0.5 h-4 w-4 shrink-0 text-tierra" />{sitio.direccion}, {sitio.ciudad}, {sitio.provincia}</li>
-            <li className="flex gap-2.5"><IconoTelefono className="mt-0.5 h-4 w-4 shrink-0 text-tierra" /><a href={linkTelefono} className="hover:text-white">{sitio.telefono}</a></li>
-            <li className="flex gap-2.5"><IconoMail className="mt-0.5 h-4 w-4 shrink-0 text-tierra" /><a href={`mailto:${sitio.email}`} className="break-all hover:text-white">{sitio.email}</a></li>
-            <li className="flex gap-2.5"><IconoReloj className="mt-0.5 h-4 w-4 shrink-0 text-tierra" />{sitio.horario}</li>
+            <li className="flex gap-2.5"><IconoPin className="mt-0.5 h-4 w-4 shrink-0 text-petroleo-claro" />{sitio.direccion}, {sitio.ciudad}, {sitio.provincia}</li>
+            <li className="flex gap-2.5"><IconoTelefono className="mt-0.5 h-4 w-4 shrink-0 text-petroleo-claro" /><a href={linkTelefono} className="hover:text-white">{sitio.telefono}</a></li>
+            <li className="flex gap-2.5"><IconoMail className="mt-0.5 h-4 w-4 shrink-0 text-petroleo-claro" /><a href={`mailto:${sitio.email}`} className="break-all hover:text-white">{sitio.email}</a></li>
+            <li className="flex gap-2.5"><IconoReloj className="mt-0.5 h-4 w-4 shrink-0 text-petroleo-claro" />{sitio.horario}</li>
           </ul>
           <a href={linkWhatsapp("Hola, quería hacer una consulta.")} className="boton-whatsapp mt-5">
             Escribinos por WhatsApp
@@ -58,9 +58,22 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-white/10">
-        <div className="contenedor flex flex-col gap-2 py-6 text-xs text-white/50 sm:flex-row sm:justify-between">
-          <p>© {sitio.nombre} · {sitio.matricula}</p>
-          <p>Las fotos, medidas y precios son orientativos y pueden variar sin previo aviso.</p>
+        <div className="contenedor flex flex-col gap-3 py-6 text-xs text-white/50 sm:flex-row sm:items-end sm:justify-between">
+          <div className="space-y-1">
+            <p>© {sitio.nombre} · {sitio.matricula}</p>
+            <p>Las fotos, medidas y precios son orientativos y pueden variar sin previo aviso.</p>
+          </div>
+          <p>
+            Sitio web por{" "}
+            <a
+              href="https://webpmarg.com.ar"
+              target="_blank"
+              rel="noopener"
+              className="font-semibold text-white/80 underline-offset-4 transition hover:text-white hover:underline"
+            >
+              webpmarg
+            </a>
+          </p>
         </div>
       </div>
     </footer>

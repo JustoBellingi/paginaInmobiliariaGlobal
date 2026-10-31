@@ -22,7 +22,7 @@ export function BotonCompartir({ titulo, url }: { titulo: string; url: string })
     <button
       type="button"
       onClick={compartir}
-      className="flex w-full items-center justify-center gap-2 py-2 text-sm font-semibold text-gris transition hover:text-selva"
+      className="flex w-full items-center justify-center gap-2 py-2 text-sm font-semibold text-gris transition hover:text-marino"
     >
       <IconoCompartir className="h-4 w-4" />
       {copiado ? "¡Link copiado!" : "Compartir propiedad"}

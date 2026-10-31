@@ -53,7 +53,7 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative isolate overflow-hidden bg-selva">
+      <section className="relative isolate overflow-hidden bg-marino">
         <Image
           src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2200&q=75"
           alt=""
@@ -62,11 +62,11 @@ export default function Home() {
           sizes="100vw"
           className="-z-20 object-cover"
         />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-selva via-selva/85 to-selva/30" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-marino via-marino/85 to-marino/30" />
         <div className="contenedor pt-20 pb-16 sm:pt-28 sm:pb-24">
-          <p className="sobretitulo text-tierra-suave/90">Inmobiliaria en Misiones</p>
+          <p className="sobretitulo text-petroleo-suave/90">Inmobiliaria en Misiones</p>
           <h1 className="mt-4 max-w-3xl font-display text-[2.6rem] leading-[1.05] font-medium text-white sm:text-6xl lg:text-7xl">
-            Tu próxima propiedad en <em className="text-tierra-suave not-italic">tierra colorada</em>
+            Tu próxima propiedad en <em className="text-petroleo-suave not-italic">tierra colorada</em>
           </h1>
           <p className="mt-6 max-w-xl text-lg text-white/80">
             Casas, departamentos, terrenos y chacras en venta y alquiler en Posadas, Oberá, Iguazú y toda la provincia.
@@ -81,9 +81,9 @@ export default function Home() {
       <section className="border-b border-linea bg-white">
         <div className="contenedor grid gap-x-10 gap-y-10 py-16 sm:grid-cols-2 lg:grid-cols-4">
           {pilares.map(({ icono: Icono, titulo, texto }) => (
-            <div key={titulo} className="border-t border-selva/15 pt-6">
-              <Icono className="h-8 w-8 text-tierra" strokeWidth={1.4} aria-hidden="true" />
-              <h3 className="mt-5 font-display text-xl text-selva">{titulo}</h3>
+            <div key={titulo} className="border-t border-marino/15 pt-6">
+              <Icono className="h-8 w-8 text-petroleo" strokeWidth={1.4} aria-hidden="true" />
+              <h3 className="mt-5 font-display text-xl text-marino">{titulo}</h3>
               <p className="mt-2 text-sm leading-relaxed text-gris">{texto}</p>
             </div>
           ))}
@@ -120,7 +120,7 @@ export default function Home() {
               key={c.nombre}
               href={`/propiedades?ciudad=${encodeURIComponent(c.nombre)}`}
               className={`group relative isolate flex aspect-[4/5] flex-col justify-end overflow-hidden rounded-2xl p-5 text-white transition hover:-translate-y-1 ${
-                i % 2 ? "bg-tierra" : "bg-selva"
+                i % 2 ? "bg-petroleo" : "bg-marino"
               }`}
             >
               {foto ? (
@@ -132,7 +132,7 @@ export default function Home() {
                     sizes="(min-width: 1024px) 20vw, (min-width: 640px) 33vw, 50vw"
                     className="-z-20 object-cover transition duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 -z-10 bg-gradient-to-t from-selva via-selva/40 to-transparent" />
+                  <div className="absolute inset-0 -z-10 bg-gradient-to-t from-marino via-marino/40 to-transparent" />
                 </>
               ) : (
                 <svg viewBox="0 0 100 100" className="absolute -top-6 -right-6 h-32 w-32 opacity-15" aria-hidden="true">
@@ -156,7 +156,7 @@ export default function Home() {
             {creditos.map(([ciudad, c], i) => (
               <span key={ciudad}>
                 {i > 0 && " · "}
-                <a href={c.url} target="_blank" rel="noopener noreferrer" className="hover:text-selva hover:underline">
+                <a href={c.url} target="_blank" rel="noopener noreferrer" className="hover:text-marino hover:underline">
                   {ciudad}, {c.autor} ({c.licencia})
                 </a>
               </span>
@@ -179,7 +179,7 @@ export default function Home() {
                 className="object-cover"
               />
             </div>
-            <div className="absolute -bottom-6 left-6 rounded-2xl bg-selva p-6 text-white shadow-xl sm:left-auto sm:-right-6">
+            <div className="absolute -bottom-6 left-6 rounded-2xl bg-marino p-6 text-white shadow-xl sm:left-auto sm:-right-6">
               <p className="font-display text-4xl">Misiones</p>
               <p className="text-sm text-white/70">es nuestra casa</p>
             </div>
@@ -194,7 +194,7 @@ export default function Home() {
             <ul className="mt-8 space-y-3">
               {servicios.map((s) => (
                 <li key={s} className="flex gap-3">
-                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-selva text-white">
+                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-marino text-white">
                     <IconoCheck className="h-3.5 w-3.5" />
                   </span>
                   <span>{s}</span>
@@ -211,7 +211,7 @@ export default function Home() {
 
       {/* Llamados */}
       <section className="contenedor mt-24 grid gap-6 lg:grid-cols-[1.4fr_1fr]">
-        <div className="relative overflow-hidden rounded-3xl bg-tierra p-8 text-white sm:p-12">
+        <div className="relative overflow-hidden rounded-3xl bg-petroleo p-8 text-white sm:p-12">
           <svg viewBox="0 0 200 200" className="absolute -right-16 -bottom-16 h-72 w-72 opacity-10" aria-hidden="true">
             <path d="M20 110 100 40l80 70M45 95v85h110V95" fill="none" stroke="white" strokeWidth="8" strokeLinejoin="round" />
           </svg>
@@ -220,13 +220,13 @@ export default function Home() {
           <p className="mt-4 max-w-md text-white/85">
             Pedí una tasación sin cargo. Te visitamos, analizamos el mercado de tu zona y te damos un valor real.
           </p>
-          <Link href="/tasaciones" className="boton mt-8 bg-white text-tierra hover:bg-tierra-suave">
+          <Link href="/tasaciones" className="boton mt-8 bg-white text-petroleo hover:bg-petroleo-suave">
             Pedir tasación <IconoFlecha className="h-4 w-4" />
           </Link>
         </div>
         <div className="rounded-3xl bg-white p-8 ring-1 ring-linea sm:p-12">
           <p className="sobretitulo">Búsqueda a medida</p>
-          <h2 className="mt-3 font-display text-3xl leading-tight text-selva">¿No encontrás lo que buscás?</h2>
+          <h2 className="mt-3 font-display text-3xl leading-tight text-marino">¿No encontrás lo que buscás?</h2>
           <p className="mt-4 text-gris">
             Contanos qué necesitás y te avisamos apenas ingrese una propiedad así, antes de publicarla.
           </p>

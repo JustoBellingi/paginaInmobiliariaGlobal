@@ -72,7 +72,7 @@ export function Catalogo({ propiedades, ciudades }: Props) {
               key={valor}
               type="button"
               onClick={() => setFiltros({ operacion: valor, precioMin: "", precioMax: "" })}
-              className={`rounded-md py-2 transition ${operacion === valor ? "bg-selva text-white shadow" : "text-gris hover:bg-white"}`}
+              className={`rounded-md py-2 transition ${operacion === valor ? "bg-marino text-white shadow" : "text-gris hover:bg-white"}`}
             >
               {label}
             </button>
@@ -119,7 +119,7 @@ export function Catalogo({ propiedades, ciudades }: Props) {
               type="button"
               onClick={() => setFiltro("dormitorios", n ? String(n) : "")}
               className={`rounded-md border py-2 transition ${
-                dormitorios === n ? "border-selva bg-selva text-white" : "border-linea bg-white hover:border-selva-claro"
+                dormitorios === n ? "border-marino bg-marino text-white" : "border-linea bg-white hover:border-petroleo"
               }`}
             >
               {n === 0 ? "Todos" : `${n}+`}
@@ -154,7 +154,7 @@ export function Catalogo({ propiedades, ciudades }: Props) {
         <button
           type="button"
           onClick={() => router.replace(pathname, { scroll: false })}
-          className="w-full text-sm font-semibold text-tierra underline-offset-4 hover:underline"
+          className="w-full text-sm font-semibold text-petroleo underline-offset-4 hover:underline"
         >
           Limpiar filtros
         </button>
@@ -194,18 +194,18 @@ export function Catalogo({ propiedades, ciudades }: Props) {
 
       <div className="mt-8 grid gap-8 lg:grid-cols-[280px_1fr]">
         <aside className="hidden h-fit rounded-2xl bg-white p-6 ring-1 ring-linea lg:sticky lg:top-24 lg:block">
-          <p className="mb-5 font-display text-xl text-selva">Filtrar búsqueda</p>
+          <p className="mb-5 font-display text-xl text-marino">Filtrar búsqueda</p>
           {filtros}
         </aside>
 
         {filtrosAbiertos && (
-          <div className="fixed inset-0 z-50 bg-selva/50 lg:hidden" onClick={() => setFiltrosAbiertos(false)}>
+          <div className="fixed inset-0 z-50 bg-marino/50 lg:hidden" onClick={() => setFiltrosAbiertos(false)}>
             <div
               className="absolute inset-x-0 bottom-0 max-h-[88vh] overflow-y-auto rounded-t-3xl bg-white p-6"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="mb-5 flex items-center justify-between">
-                <p className="font-display text-xl text-selva">Filtrar búsqueda</p>
+                <p className="font-display text-xl text-marino">Filtrar búsqueda</p>
                 <button type="button" onClick={() => setFiltrosAbiertos(false)} aria-label="Cerrar filtros" className="p-2">
                   <IconoCerrar className="h-6 w-6" />
                 </button>
@@ -227,7 +227,7 @@ export function Catalogo({ propiedades, ciudades }: Props) {
             </div>
           ) : (
             <div className="rounded-2xl border border-dashed border-linea bg-white px-6 py-16 text-center">
-              <p className="font-display text-2xl text-selva">No encontramos propiedades con esos filtros</p>
+              <p className="font-display text-2xl text-marino">No encontramos propiedades con esos filtros</p>
               <p className="mx-auto mt-2 max-w-md text-gris">
                 Probá ampliar la búsqueda, o contanos qué buscás y te avisamos cuando ingrese algo así.
               </p>

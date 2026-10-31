@@ -23,14 +23,14 @@ export function MenuMovil() {
       <button
         type="button"
         onClick={() => setAbierto(true)}
-        className="flex h-11 w-11 items-center justify-center rounded-full text-selva hover:bg-arena"
+        className="flex h-11 w-11 items-center justify-center rounded-full text-marino hover:bg-arena"
         aria-label="Abrir menú"
         aria-expanded={abierto}
       >
         <IconoMenu className="h-6 w-6" />
       </button>
       {abierto && (
-        <div className="fixed inset-0 z-50 bg-selva/50" onClick={() => setAbierto(false)}>
+        <div className="fixed inset-0 z-50 bg-marino/50" onClick={() => setAbierto(false)}>
           <nav
             className="ml-auto flex h-full w-[min(88vw,360px)] flex-col bg-white p-6 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
@@ -49,7 +49,7 @@ export function MenuMovil() {
                   <Link
                     href={e.href}
                     onClick={() => setAbierto(false)}
-                    className="block py-4 font-display text-xl text-selva"
+                    className="block py-4 font-display text-xl text-marino"
                   >
                     {e.label}
                   </Link>

@@ -18,9 +18,9 @@ const pasos = [
 export default function TasacionesPage() {
   return (
     <>
-      <section className="bg-selva text-white">
+      <section className="bg-marino text-white">
         <div className="contenedor py-16 sm:py-20">
-          <p className="sobretitulo text-tierra-suave/90">Tasación sin cargo</p>
+          <p className="sobretitulo text-petroleo-suave/90">Tasación sin cargo</p>
           <h1 className="mt-3 max-w-2xl font-display text-4xl leading-tight font-medium sm:text-5xl">
             ¿Cuánto vale tu propiedad hoy?
           </h1>
@@ -31,26 +31,26 @@ export default function TasacionesPage() {
       </section>
       <div className="contenedor grid gap-12 py-14 lg:grid-cols-[1fr_1.7fr]">
         <div>
-          <h2 className="font-display text-2xl text-selva">Cómo funciona</h2>
+          <h2 className="font-display text-2xl text-marino">Cómo funciona</h2>
           <ol className="mt-6 space-y-6">
             {pasos.map(([t, d], i) => (
               <li key={t} className="flex gap-4">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-tierra font-display text-lg text-white">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-petroleo font-display text-lg text-white">
                   {i + 1}
                 </span>
                 <div>
-                  <p className="font-bold text-selva">{t}</p>
+                  <p className="font-bold text-marino">{t}</p>
                   <p className="mt-0.5 text-sm leading-relaxed text-gris">{d}</p>
                 </div>
               </li>
             ))}
           </ol>
           <div className="mt-10 rounded-2xl bg-crema/70 p-6">
-            <p className="font-bold text-selva">Tasamos para</p>
+            <p className="font-bold text-marino">Tasamos para</p>
             <ul className="mt-3 space-y-2 text-sm">
               {["Venta", "Alquiler", "Sucesiones y divisiones", "Presentaciones bancarias"].map((s) => (
                 <li key={s} className="flex items-center gap-2">
-                  <IconoCheck className="h-4 w-4 text-tierra" /> {s}
+                  <IconoCheck className="h-4 w-4 text-petroleo" /> {s}
                 </li>
               ))}
             </ul>

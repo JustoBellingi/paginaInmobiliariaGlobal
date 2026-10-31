@@ -7,7 +7,7 @@ export function EtiquetaOperacion({ operacion }: { operacion: Propiedad["operaci
   return (
     <span
       className={`rounded-full px-3 py-1 text-[11px] font-bold tracking-[0.12em] uppercase ${
-        operacion === "venta" ? "bg-selva text-white" : "bg-tierra text-white"
+        operacion === "venta" ? "bg-marino text-white" : "bg-petroleo text-white"
       }`}
     >
       {operacion}
@@ -40,10 +40,10 @@ export function TarjetaPropiedad({ propiedad: p }: { propiedad: Propiedad }) {
         </span>
       </div>
       <div className="flex flex-1 flex-col p-5">
-        <p className="text-[22px] font-bold tracking-tight text-selva">{precioConPeriodo(p)}</p>
-        <h3 className="mt-1 line-clamp-2 font-semibold leading-snug text-tinta group-hover:text-tierra">{p.titulo}</h3>
+        <p className="text-[22px] font-bold tracking-tight text-marino">{precioConPeriodo(p)}</p>
+        <h3 className="mt-1 line-clamp-2 font-semibold leading-snug text-tinta group-hover:text-petroleo">{p.titulo}</h3>
         <p className="mt-2 flex items-center gap-1 text-sm text-gris">
-          <IconoPin className="h-4 w-4 shrink-0 text-tierra" /> {p.barrio}, {p.ciudad}
+          <IconoPin className="h-4 w-4 shrink-0 text-petroleo" /> {p.barrio}, {p.ciudad}
         </p>
         <div className="mt-auto flex flex-wrap gap-x-5 gap-y-1 border-t border-linea pt-4 text-sm text-gris [&>span]:flex [&>span]:items-center [&>span]:gap-1.5">
           {p.dormitorios > 0 && (

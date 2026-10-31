@@ -126,13 +126,13 @@ export default async function PropiedadPage({ params }: PageProps<"/propiedades/
   return (
     <div className="contenedor pt-6 pb-8">
       <nav className="mb-5 flex flex-wrap items-center gap-1.5 text-sm text-gris" aria-label="Ruta">
-        <Link href="/" className="hover:text-selva">Inicio</Link>
+        <Link href="/" className="hover:text-marino">Inicio</Link>
         <span>/</span>
-        <Link href={`/propiedades?operacion=${p.operacion}`} className="hover:text-selva">
+        <Link href={`/propiedades?operacion=${p.operacion}`} className="hover:text-marino">
           {p.operacion === "venta" ? "Venta" : "Alquiler"}
         </Link>
         <span>/</span>
-        <Link href={`/propiedades?ciudad=${encodeURIComponent(p.ciudad)}`} className="hover:text-selva">{p.ciudad}</Link>
+        <Link href={`/propiedades?ciudad=${encodeURIComponent(p.ciudad)}`} className="hover:text-marino">{p.ciudad}</Link>
         <span>/</span>
         <span className="text-tinta">{p.codigo}</span>
       </nav>
@@ -148,23 +148,23 @@ export default async function PropiedadPage({ params }: PageProps<"/propiedades/
             </span>
             <span className="text-xs text-gris">Cód. {p.codigo}</span>
           </div>
-          <h1 className="mt-4 font-display text-3xl leading-tight font-medium text-selva sm:text-[2.6rem]">{p.titulo}</h1>
+          <h1 className="mt-4 font-display text-3xl leading-tight font-medium text-marino sm:text-[2.6rem]">{p.titulo}</h1>
           <p className="mt-3 flex items-center gap-1.5 text-gris">
-            <IconoPin className="h-5 w-5 text-tierra" /> {p.barrio}, {p.ciudad}, Misiones
+            <IconoPin className="h-5 w-5 text-petroleo" /> {p.barrio}, {p.ciudad}, Misiones
           </p>
 
           {/* Precio en celular */}
           <div className="mt-6 rounded-2xl bg-white p-5 ring-1 ring-linea lg:hidden">
-            <p className="text-3xl font-bold tracking-tight text-selva">{precioConPeriodo(p)}</p>
+            <p className="text-3xl font-bold tracking-tight text-marino">{precioConPeriodo(p)}</p>
             {p.expensas ? <p className="mt-1 text-sm text-gris">+ {formatPrecio(p.expensas, "ARS")} de expensas</p> : null}
           </div>
 
           <dl className="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-linea ring-1 ring-linea sm:grid-cols-3">
             {destacados.map(({ icono: Icono, valor, label }) => (
               <div key={label} className="flex items-center gap-3 bg-white p-4">
-                <Icono className="h-6 w-6 shrink-0 text-tierra" />
+                <Icono className="h-6 w-6 shrink-0 text-petroleo" />
                 <div>
-                  <dd className="text-lg leading-none font-bold text-selva">{valor}</dd>
+                  <dd className="text-lg leading-none font-bold text-marino">{valor}</dd>
                   <dt className="mt-1 text-xs text-gris">{label}</dt>
                 </div>
               </div>
@@ -172,7 +172,7 @@ export default async function PropiedadPage({ params }: PageProps<"/propiedades/
           </dl>
 
           <section className="mt-12">
-            <h2 className="font-display text-2xl text-selva">Descripción</h2>
+            <h2 className="font-display text-2xl text-marino">Descripción</h2>
             <div className="mt-4 space-y-4 leading-relaxed text-tinta/85">
               {p.descripcion.split("\n\n").map((parrafo) => (
                 <p key={parrafo}>{parrafo}</p>
@@ -182,11 +182,11 @@ export default async function PropiedadPage({ params }: PageProps<"/propiedades/
 
           {p.caracteristicas.length > 0 && (
             <section className="mt-12">
-              <h2 className="font-display text-2xl text-selva">Características y comodidades</h2>
+              <h2 className="font-display text-2xl text-marino">Características y comodidades</h2>
               <ul className="mt-5 grid gap-3 sm:grid-cols-2">
                 {p.caracteristicas.map((c) => (
                   <li key={c} className="flex items-center gap-3">
-                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-tierra-suave text-tierra">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-petroleo-suave text-petroleo">
                       <IconoCheck className="h-3.5 w-3.5" />
                     </span>
                     {c}
@@ -197,7 +197,7 @@ export default async function PropiedadPage({ params }: PageProps<"/propiedades/
           )}
 
           <section className="mt-12">
-            <h2 className="font-display text-2xl text-selva">Ficha técnica</h2>
+            <h2 className="font-display text-2xl text-marino">Ficha técnica</h2>
             <dl className="mt-5 divide-y divide-linea rounded-2xl bg-white px-5 ring-1 ring-linea">
               {ficha.map(([k, v]) => (
                 <div key={k} className="flex justify-between gap-4 py-3.5 text-sm">
@@ -209,7 +209,7 @@ export default async function PropiedadPage({ params }: PageProps<"/propiedades/
           </section>
 
           <section className="mt-12">
-            <h2 className="font-display text-2xl text-selva">Ubicación</h2>
+            <h2 className="font-display text-2xl text-marino">Ubicación</h2>
             <p className="mt-2 text-sm text-gris">
               {p.barrio}, {p.ciudad}. La ubicación exacta se informa al coordinar la visita.
             </p>
@@ -228,7 +228,7 @@ export default async function PropiedadPage({ params }: PageProps<"/propiedades/
         <aside className="hidden lg:block">
           <div className="sticky top-24 space-y-3 rounded-3xl bg-white p-7 shadow-[0_20px_50px_-20px_rgba(15,47,38,0.25)] ring-1 ring-linea">
             <p className="text-sm text-gris">{p.operacion === "venta" ? "Precio de venta" : "Alquiler mensual"}</p>
-            <p className="text-4xl font-bold tracking-tight text-selva">{formatPrecio(p.precio, p.moneda)}</p>
+            <p className="text-4xl font-bold tracking-tight text-marino">{formatPrecio(p.precio, p.moneda)}</p>
             {p.expensas ? <p className="text-sm text-gris">+ {formatPrecio(p.expensas, "ARS")} de expensas</p> : null}
             <div className="space-y-3 border-t border-linea pt-5">{contacto}</div>
             <BotonCompartir titulo={p.titulo} url={url} />

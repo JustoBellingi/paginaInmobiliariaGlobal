@@ -29,7 +29,7 @@ export function Galeria({ fotos, titulo }: { fotos: string[]; titulo: string }) 
       type="button"
       onClick={onClick}
       aria-label={dir === 1 ? "Foto siguiente" : "Foto anterior"}
-      className={`absolute top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-2xl text-selva shadow-lg transition hover:bg-white ${
+      className={`absolute top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-2xl text-marino shadow-lg transition hover:bg-white ${
         dir === 1 ? "right-3" : "left-3"
       } ${extra}`}
     >
@@ -87,7 +87,7 @@ export function Galeria({ fotos, titulo }: { fotos: string[]; titulo: string }) 
         <button
           type="button"
           onClick={() => setAbierta(0)}
-          className="absolute right-4 bottom-4 flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-selva shadow-lg hover:bg-arena"
+          className="absolute right-4 bottom-4 flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-marino shadow-lg hover:bg-arena"
         >
           <IconoCamara className="h-4 w-4" /> Ver las {total} fotos
         </button>
@@ -119,7 +119,7 @@ export function Galeria({ fotos, titulo }: { fotos: string[]; titulo: string }) 
                 type="button"
                 onClick={() => setAbierta(i)}
                 className={`relative h-14 w-20 shrink-0 overflow-hidden rounded-md ring-2 ${
-                  i === abierta ? "ring-tierra" : "opacity-50 ring-transparent hover:opacity-100"
+                  i === abierta ? "ring-petroleo" : "opacity-50 ring-transparent hover:opacity-100"
                 }`}
                 aria-label={`Ver foto ${i + 1}`}
               >

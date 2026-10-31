@@ -12,7 +12,7 @@ export function BuscadorHero() {
         ].map(([valor, label], i) => (
           <label
             key={valor}
-            className="cursor-pointer rounded-t-lg border-b-2 border-transparent px-5 py-2 text-sm font-bold text-gris transition has-checked:border-tierra has-checked:text-selva"
+            className="cursor-pointer rounded-t-lg border-b-2 border-transparent px-5 py-2 text-sm font-bold text-gris transition has-checked:border-petroleo has-checked:text-marino"
           >
             <input type="radio" name="operacion" value={valor} defaultChecked={i === 0} className="sr-only" />
             {label}
@@ -50,7 +50,7 @@ export function BuscadorHero() {
             <option value="4">4 o más</option>
           </select>
         </label>
-        <button className="boton-tierra self-end rounded-lg px-8 py-[11px] sm:col-span-2 lg:col-span-1">Buscar</button>
+        <button className="boton-petroleo self-end rounded-lg px-8 py-[11px] sm:col-span-2 lg:col-span-1">Buscar</button>
       </div>
     </form>
   );
