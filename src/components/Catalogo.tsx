@@ -175,7 +175,7 @@ export function Catalogo({ propiedades, ciudades }: Props) {
           <button
             type="button"
             onClick={() => setFiltrosAbiertos(true)}
-            className="boton-borde flex-1 rounded-lg py-2.5 lg:hidden"
+            className="boton-borde flex-1 py-2.5 lg:hidden"
           >
             <IconoFiltros className="h-4 w-4" /> Filtros {activos > 0 && `(${activos})`}
           </button>

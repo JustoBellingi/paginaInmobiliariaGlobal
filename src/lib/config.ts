@@ -9,7 +9,7 @@ export const sitio = {
   // Número en formato internacional sin "+", espacios ni guiones (549 + característica + número).
   whatsapp: "5493764000000",
   telefono: "(376) 400-0000",
-  email: "contacto@globalinmobiliaria.com.ar",
+  email: "globalsi.net@gmail.com",
   direccion: "Calle Ejemplo 1234",
   ciudad: "Posadas",
   provincia: "Misiones",

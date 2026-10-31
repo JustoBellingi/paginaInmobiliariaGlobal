@@ -1,8 +1,17 @@
+import { cacheLife } from "next/cache";
 import Link from "next/link";
 import { linkTelefono, linkWhatsapp, sitio } from "@/lib/config";
 import { getCiudades } from "@/lib/propiedades";
 import { IconoMail, IconoPin, IconoReloj, IconoTelefono } from "./Iconos";
 import { Logo } from "./Logo";
+
+// Con cacheComponents no se puede llamar a new Date() al prerenderizar: el año se calcula
+// dentro de una caché que se renueva una vez por día.
+async function AnioActual() {
+  "use cache";
+  cacheLife("days");
+  return <>{new Date().getFullYear()}</>;
+}
 
 export function Footer() {
   const ciudades = getCiudades().slice(0, 6);
@@ -14,10 +23,10 @@ export function Footer() {
           <Logo claro />
           <p className="mt-5 max-w-xs leading-relaxed">{sitio.descripcion}</p>
           <div className="mt-5 flex gap-3">
-            <a href={sitio.instagram} className="rounded-full border border-white/20 px-4 py-1.5 hover:border-white hover:text-white">
+            <a href={sitio.instagram} className="rounded-md border border-white/20 px-4 py-1.5 hover:border-white hover:text-white">
               Instagram
             </a>
-            <a href={sitio.facebook} className="rounded-full border border-white/20 px-4 py-1.5 hover:border-white hover:text-white">
+            <a href={sitio.facebook} className="rounded-md border border-white/20 px-4 py-1.5 hover:border-white hover:text-white">
               Facebook
             </a>
           </div>
@@ -59,13 +68,10 @@ export function Footer() {
       </div>
       <div className="border-t border-white/10">
         <div className="contenedor flex flex-col gap-3 py-6 text-xs text-white/50 sm:flex-row sm:items-end sm:justify-between">
-          <div className="space-y-1">
-            <p>© {sitio.nombre} · {sitio.matricula}</p>
-            <p>
-              Las fotos, medidas y precios son orientativos y pueden variar sin previo aviso. ·{" "}
-              <Link href="/creditos" className="hover:text-white hover:underline">Créditos</Link>
-            </p>
-          </div>
+          <p>
+            &copy; <AnioActual /> {sitio.nombre}. Todos los derechos reservados. ·{" "}
+            <Link href="/creditos" className="hover:text-white hover:underline">Créditos</Link>
+          </p>
           <p>
             Sitio web por{" "}
             <a

@@ -193,16 +193,28 @@ export default function Home() {
 
       {/* Llamados */}
       <section className="contenedor mt-24 grid gap-6 lg:grid-cols-[1.4fr_1fr]">
-        <div className="relative overflow-hidden rounded-3xl bg-petroleo p-8 text-white sm:p-12">
-          <svg viewBox="0 0 200 200" className="absolute -right-16 -bottom-16 h-72 w-72 opacity-10" aria-hidden="true">
-            <path d="M20 110 100 40l80 70M45 95v85h110V95" fill="none" stroke="white" strokeWidth="8" strokeLinejoin="round" />
-          </svg>
-          <p className="sobretitulo text-white/70">Propietarios</p>
+        <div className="relative isolate overflow-hidden rounded-3xl bg-marino p-8 text-white sm:p-12">
+          <Image
+            src="https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?auto=format&fit=crop&w=1600&q=75"
+            alt=""
+            fill
+            sizes="(min-width: 1024px) 60vw, 100vw"
+            className="-z-20 object-cover"
+          />
+          <div className="absolute inset-0 -z-10 bg-gradient-to-r from-marino via-marino/90 to-marino/40" />
+          <p className="sobretitulo text-petroleo-claro">Propietarios</p>
           <h2 className="mt-3 max-w-md font-display text-3xl leading-tight sm:text-4xl">¿Cuánto vale tu propiedad hoy?</h2>
-          <p className="mt-4 max-w-md text-white/85">
-            Pedí una tasación sin cargo. Te visitamos, analizamos el mercado de tu zona y te damos un valor real.
+          <p className="mt-4 max-w-md text-white/80">
+            Te visitamos, analizamos el mercado de tu zona y te damos un valor real para vender o alquilar.
           </p>
-          <Link href="/tasaciones" className="boton mt-8 bg-white text-petroleo hover:bg-petroleo-suave">
+          <ul className="mt-6 space-y-2 text-sm text-white/90">
+            {["Tasación sin cargo", "Visita a la propiedad", "Informe con propiedades comparables"].map((t) => (
+              <li key={t} className="flex items-center gap-2.5">
+                <IconoCheck className="h-4 w-4 text-petroleo-claro" /> {t}
+              </li>
+            ))}
+          </ul>
+          <Link href="/tasaciones" className="boton mt-8 bg-white text-marino hover:bg-petroleo-suave">
             Pedir tasación <IconoFlecha className="h-4 w-4" />
           </Link>
         </div>

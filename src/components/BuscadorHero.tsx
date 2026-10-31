@@ -50,7 +50,7 @@ export function BuscadorHero() {
             <option value="4">4 o más</option>
           </select>
         </label>
-        <button className="boton-petroleo self-end rounded-lg px-8 py-[11px] sm:col-span-2 lg:col-span-1">Buscar</button>
+        <button className="boton-petroleo self-end px-8 py-[11px] sm:col-span-2 lg:col-span-1">Buscar</button>
       </div>
     </form>
   );

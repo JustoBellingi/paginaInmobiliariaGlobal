@@ -87,7 +87,7 @@ export function Galeria({ fotos, titulo }: { fotos: string[]; titulo: string }) 
         <button
           type="button"
           onClick={() => setAbierta(0)}
-          className="absolute right-4 bottom-4 flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-marino shadow-lg hover:bg-arena"
+          className="absolute right-4 bottom-4 flex items-center gap-2 rounded-md bg-white px-4 py-2 text-sm font-semibold text-marino shadow-lg hover:bg-arena"
         >
           <IconoCamara className="h-4 w-4" /> Ver las {total} fotos
         </button>
