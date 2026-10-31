@@ -7,8 +7,8 @@ export const sitio = {
     "Inmobiliaria en Misiones. Casas, departamentos, terrenos y chacras en venta y alquiler en Posadas, Oberá, Puerto Iguazú y toda la provincia. Tasaciones profesionales.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   // Número en formato internacional sin "+", espacios ni guiones (549 + característica + número).
-  whatsapp: "5492216900406",
-  telefono: "221 690-0406",
+  whatsapp: "5493764000000",
+  telefono: "(376) 400-0000",
   email: "globalsi.net@gmail.com",
   direccion: "Calle Ejemplo 1234",
   ciudad: "Posadas",
@@ -24,5 +24,4 @@ export function linkWhatsapp(mensaje: string) {
   return `https://wa.me/${sitio.whatsapp}?text=${encodeURIComponent(mensaje)}`;
 }
 
-// Es un celular: se llama con el mismo número internacional que WhatsApp (+54 9 …).
-export const linkTelefono = `tel:+${sitio.whatsapp}`;
+export const linkTelefono = `tel:+54${sitio.telefono.replace(/\D/g, "")}`;
