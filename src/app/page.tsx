@@ -184,7 +184,7 @@ export default function Home() {
               ))}
             </ul>
             <div className="mt-10 flex flex-wrap gap-3">
-              <Link href="/contacto" className="boton-primario">Conocenos</Link>
+              <Link href="/nosotros" className="boton-primario">Conocenos</Link>
               <Link href="/propiedades" className="boton-borde">Ver propiedades</Link>
             </div>
           </div>
