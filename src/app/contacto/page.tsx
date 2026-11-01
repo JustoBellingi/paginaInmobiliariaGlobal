@@ -22,7 +22,7 @@ export default function ContactoPage() {
       <section className="bg-marino text-white">
         <div className="contenedor py-16 sm:py-20">
           <p className="sobretitulo text-petroleo-suave/90">Contacto</p>
-          <h1 className="mt-3 max-w-2xl font-display text-4xl leading-tight font-medium sm:text-5xl">
+          <h1 className="mt-3 max-w-2xl font-display text-4xl leading-tight font-semibold sm:text-5xl">
             Hablemos de tu próxima propiedad
           </h1>
           <p className="mt-4 max-w-xl text-lg text-white/80">

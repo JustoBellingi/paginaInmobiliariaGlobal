@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Fraunces, Manrope } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { WhatsappFlotante } from "@/components/WhatsappFlotante";
 import { sitio } from "@/lib/config";
 import "./globals.css";
 
-const manrope = Manrope({ variable: "--font-manrope", subsets: ["latin"] });
-const fraunces = Fraunces({ variable: "--font-fraunces", subsets: ["latin"] });
+const inter = Inter({ variable: "--font-texto", subsets: ["latin"] });
+const jakarta = Plus_Jakarta_Sans({ variable: "--font-titulos", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL(sitio.url),
@@ -49,7 +49,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="es-AR"
       suppressHydrationWarning
-      className={`${manrope.variable} ${fraunces.variable} h-full antialiased`}
+      className={`${inter.variable} ${jakarta.variable} h-full antialiased`}
     >
       <body suppressHydrationWarning className="flex min-h-full flex-col font-sans">
         <Header />

@@ -61,7 +61,7 @@ export default function Home() {
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-marino via-marino/85 to-marino/30" />
         <div className="contenedor pt-20 pb-16 sm:pt-28 sm:pb-24">
           <p className="sobretitulo text-petroleo-suave/90">Inmobiliaria en Misiones</p>
-          <h1 className="mt-4 max-w-3xl font-display text-[2.6rem] leading-[1.05] font-medium text-white sm:text-6xl lg:text-7xl">
+          <h1 className="mt-4 max-w-3xl font-display text-[2.6rem] leading-[1.05] font-semibold text-white sm:text-6xl lg:text-7xl">
             Tu próxima propiedad en <em className="text-petroleo-suave not-italic">tierra colorada</em>
           </h1>
           <p className="mt-6 max-w-xl text-lg text-white/80">

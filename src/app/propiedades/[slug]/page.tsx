@@ -148,7 +148,7 @@ export default async function PropiedadPage({ params }: PageProps<"/propiedades/
             </span>
             <span className="text-xs text-gris">Cód. {p.codigo}</span>
           </div>
-          <h1 className="mt-4 font-display text-3xl leading-tight font-medium text-marino sm:text-[2.6rem]">{p.titulo}</h1>
+          <h1 className="mt-4 font-display text-3xl leading-tight font-semibold text-marino sm:text-[2.6rem]">{p.titulo}</h1>
           <p className="mt-3 flex items-center gap-1.5 text-gris">
             <IconoPin className="h-5 w-5 text-petroleo" /> {p.barrio}, {p.ciudad}, Misiones
           </p>

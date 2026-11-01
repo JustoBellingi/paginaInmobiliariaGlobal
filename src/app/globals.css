@@ -13,8 +13,8 @@
   --color-tinta: #161b22;
   --color-gris: #5b6370;
   --color-linea: #e1e0da;
-  --font-sans: var(--font-manrope);
-  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-texto);
+  --font-display: var(--font-titulos);
 }
 
 html {
@@ -48,7 +48,7 @@ body {
 }
 
 @utility titulo-seccion {
-  @apply font-display text-3xl leading-tight font-medium text-marino sm:text-4xl;
+  @apply font-display text-3xl leading-tight font-semibold text-marino sm:text-4xl;
 }
 
 @utility boton {
@@ -76,4 +76,9 @@ body {
   body:has(.barra-contacto) .whatsapp-flotante {
     display: none;
   }
+}
+
+/* Títulos en Plus Jakarta Sans un poco más apretados, como se usa en titulares. */
+.font-display {
+  letter-spacing: -0.025em;
 }
