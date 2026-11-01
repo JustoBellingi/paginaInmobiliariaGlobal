@@ -3,18 +3,19 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   BadgeCheck,
-  Camera,
   ChartNoAxesCombined,
   ClipboardCheck,
-  FileSignature,
+  Eye,
   Handshake,
   House,
   KeyRound,
+  Lightbulb,
   MapPinned,
+  Megaphone,
   MessagesSquare,
-  ScanSearch,
   ShieldCheck,
 } from "lucide-react";
+import { IconoDestacado } from "@/components/IconoDestacado";
 import { IconoFlecha } from "@/components/Iconos";
 import { IconoWhatsapp } from "@/components/IconoWhatsapp";
 import { linkWhatsapp, sitio } from "@/lib/config";
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
 // TODO: completar con la historia real de la inmobiliaria (año de inicio, quiénes la integran, etc.).
 const valores = [
   {
-    icono: ScanSearch,
+    icono: Eye,
     titulo: "Transparencia",
     texto: "Información clara desde el primer contacto: precios reales, costos de la operación y estado de la documentación.",
   },
@@ -55,15 +56,14 @@ const servicios = [
   { icono: House, titulo: "Venta", texto: "Casas, departamentos, terrenos y chacras. Te ayudamos a vender al mejor precio posible o a encontrar la propiedad indicada." },
   { icono: KeyRound, titulo: "Alquiler", texto: "Contratos claros, garantías verificadas y seguimiento durante el alquiler, tanto para propietarios como para inquilinos." },
   { icono: ChartNoAxesCombined, titulo: "Tasaciones", texto: "Valores de mercado fundamentados para venta, alquiler, sucesiones, divisiones y presentaciones bancarias." },
-  { icono: Camera, titulo: "Difusión profesional", texto: "Fotografía cuidada, ficha completa en la web y publicación en portales y redes para llegar a más interesados." },
-  { icono: FileSignature, titulo: "Escritura y trámites", texto: "Coordinamos con escribanías y te acompañamos en cada paso hasta la firma y la entrega de llaves." },
-  { icono: MessagesSquare, titulo: "Asesoramiento", texto: "Orientación a inversores y familias para decidir dónde y cómo comprar según su presupuesto y sus planes." },
+  { icono: Megaphone, titulo: "Difusión profesional", texto: "Fotografía cuidada, ficha completa en la web y publicación en portales y redes para llegar a más interesados." },
+  { icono: Lightbulb, titulo: "Asesoramiento", texto: "Orientación a inversores y familias para decidir dónde y cómo comprar según su presupuesto y sus planes." },
 ];
 
 const proceso = [
   { icono: MessagesSquare, titulo: "Nos contactás", texto: "Por WhatsApp, teléfono o el formulario de la web." },
   { icono: ClipboardCheck, titulo: "Evaluamos", texto: "Visitamos la propiedad o entendemos qué estás buscando." },
-  { icono: Camera, titulo: "Ponemos en marcha", texto: "Tasación, fotos y publicación, o búsqueda a medida." },
+  { icono: Megaphone, titulo: "Ponemos en marcha", texto: "Tasación, fotos y publicación, o búsqueda a medida." },
   { icono: BadgeCheck, titulo: "Cerramos", texto: "Negociación, documentación y firma, con vos en cada paso." },
 ];
 
@@ -106,10 +106,6 @@ export default function NosotrosPage() {
               todo lo que hace falta para que la operación salga bien, desde la primera visita hasta la entrega de llaves.
             </p>
           </div>
-          <div className="mt-8 inline-flex items-center gap-3 rounded-md border border-linea bg-white px-4 py-3 text-sm">
-            <BadgeCheck className="h-5 w-5 text-petroleo" strokeWidth={1.6} aria-hidden="true" />
-            <span className="font-semibold text-marino">{sitio.matricula}</span>
-          </div>
         </div>
         <div className="relative">
           <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
@@ -136,8 +132,8 @@ export default function NosotrosPage() {
           <div className="mt-12 grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
             {valores.map(({ icono: Icono, titulo, texto }) => (
               <div key={titulo} className="border-t border-marino/15 pt-6">
-                <Icono className="h-8 w-8 text-petroleo" strokeWidth={1.4} aria-hidden="true" />
-                <h3 className="mt-5 font-display text-xl font-semibold text-marino">{titulo}</h3>
+                <IconoDestacado icono={Icono} />
+                <h3 className="mt-6 font-display text-xl font-semibold text-marino">{titulo}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-gris">{texto}</p>
               </div>
             ))}
@@ -149,13 +145,12 @@ export default function NosotrosPage() {
       <section className="contenedor py-20">
         <p className="sobretitulo">Servicios</p>
         <h2 className="titulo-seccion mt-3 max-w-2xl">Todo lo que necesitás en una sola inmobiliaria</h2>
-        <div className="mt-12 grid gap-px overflow-hidden rounded-2xl bg-linea ring-1 ring-linea sm:grid-cols-2 lg:grid-cols-3">
-          {servicios.map(({ icono: Icono, titulo, texto }) => (
-            <div key={titulo} className="bg-white p-8">
-              <span className="flex h-12 w-12 items-center justify-center rounded-md bg-petroleo-suave text-petroleo">
-                <Icono className="h-6 w-6" strokeWidth={1.6} aria-hidden="true" />
-              </span>
-              <h3 className="mt-5 font-display text-lg font-semibold text-marino">{titulo}</h3>
+        {/* 5 servicios: 2 arriba y 3 abajo en escritorio */}
+        <div className="mt-12 grid gap-px overflow-hidden rounded-2xl bg-linea ring-1 ring-linea sm:grid-cols-2 lg:grid-cols-6">
+          {servicios.map(({ icono: Icono, titulo, texto }, i) => (
+            <div key={titulo} className={`bg-white p-8 ${i < 2 ? "lg:col-span-3" : "lg:col-span-2"} ${i === 4 ? "sm:col-span-2 lg:col-span-2" : ""}`}>
+              <IconoDestacado icono={Icono} />
+              <h3 className="mt-6 font-display text-lg font-semibold text-marino">{titulo}</h3>
               <p className="mt-2 text-sm leading-relaxed text-gris">{texto}</p>
             </div>
           ))}
@@ -173,9 +168,7 @@ export default function NosotrosPage() {
             {proceso.map(({ icono: Icono, titulo, texto }, i) => (
               <li key={titulo} className="relative">
                 <div className="flex items-center gap-4">
-                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md border border-white/15 text-petroleo-claro">
-                    <Icono className="h-6 w-6" strokeWidth={1.5} aria-hidden="true" />
-                  </span>
+                  <IconoDestacado icono={Icono} sobreOscuro />
                   <span className="font-display text-sm font-semibold tracking-widest text-white/40">0{i + 1}</span>
                 </div>
                 <h3 className="mt-5 font-display text-lg font-semibold">{titulo}</h3>

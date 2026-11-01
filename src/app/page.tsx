@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { BuscadorHero } from "@/components/BuscadorHero";
 import { ChartNoAxesCombined, Handshake, MapPinned, ShieldCheck } from "lucide-react";
+import { IconoDestacado } from "@/components/IconoDestacado";
 import { IconoCheck, IconoFlecha } from "@/components/Iconos";
 import { IconoWhatsapp } from "@/components/IconoWhatsapp";
 import { TarjetaPropiedad } from "@/components/TarjetaPropiedad";
@@ -78,8 +79,8 @@ export default function Home() {
         <div className="contenedor grid gap-x-10 gap-y-10 py-16 sm:grid-cols-2 lg:grid-cols-4">
           {pilares.map(({ icono: Icono, titulo, texto }) => (
             <div key={titulo} className="border-t border-marino/15 pt-6">
-              <Icono className="h-8 w-8 text-petroleo" strokeWidth={1.4} aria-hidden="true" />
-              <h3 className="mt-5 font-display text-xl text-marino">{titulo}</h3>
+              <IconoDestacado icono={Icono} />
+              <h3 className="mt-6 font-display text-xl font-semibold text-marino">{titulo}</h3>
               <p className="mt-2 text-sm leading-relaxed text-gris">{texto}</p>
             </div>
           ))}

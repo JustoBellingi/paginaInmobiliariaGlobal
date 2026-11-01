@@ -232,9 +232,6 @@ export default async function PropiedadPage({ params }: PageProps<"/propiedades/
             {p.expensas ? <p className="text-sm text-gris">+ {formatPrecio(p.expensas, "ARS")} de expensas</p> : null}
             <div className="space-y-3 border-t border-linea pt-5">{contacto}</div>
             <BotonCompartir titulo={p.titulo} url={url} />
-            <p className="pt-2 text-center text-xs text-gris">
-              {sitio.matricula}
-            </p>
           </div>
         </aside>
       </div>
